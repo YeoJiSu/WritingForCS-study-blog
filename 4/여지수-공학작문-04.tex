@@ -1,0 +1,49 @@
+\documentclass[11pt, a4paper]{article}
+\usepackage[hangul]{kotex}
+\usepackage{enumitem}
+\usepackage{indentfirst}
+
+\begin{document}
+
+\title{인프라 관리 자동화 도구들 간의 비교 및 분석}
+\author{여지수\footnote{duwltn1301@pusan.ac.kr}}
+\date{2022.10.10}
+\maketitle
+
+\section{서론}
+‘하나’의 네트워크 노드에 설치된 소프트웨어를 관리하기란 어렵지 않다. 
+하지만, 노드가 ‘수만 개’ 일 때 이 모든 노드들에 대해 하나씩 설치 및 관리를 한다면, 반복되는 작업들을 계속해 주어야 하기에 굉장히 비효율적일 것이다. 
+
+그렇기에 이러한 노드들을 구성하는 '인프라'를 자동적으로 관리하는 기술인 "IaC(Infrastructure as Code)"가 떠오르고 있다. 
+반복적인 작업을 최소화하고 IaC를 구현하고자 하는 여러 소프트웨어 구성 관리 툴들이 개발이 되었다. 
+필자는 이러한 도구들을 직접 설치해 보고, 그 특징들에 대해 분석하고 비교를 해보려 한다.
+
+\section{관련 연구}
+\subsection{코드를 통한 인프라 관리\protect\footnote{RedHat 공식 홈페이지,``코드형 인프라(IaC)란?'',
+https://www.redhat.com/ko/topics/automation/what-is-infrastructure-as-code-iac}}
+
+IT 환경을 관리하고 운영하는 데에 필요한 구성 요소가 바로 인프라이다. 
+이러한 인프라를 수동적이 아닌 코드를 통해 자동적으로 관리하면 낭비되는 작업을 줄일 수 있다. 
+IaC를 구현하기 위해 Chef, Puppet, Ansible, Saltstack, Terraform, AWS CloudFormation 등과 같은 툴이 있다. 
+이러한 툴들을 사용하여 인프라를 보다 효율적으로 운영하고, 애플리케이션 개발에 있어서도 생산성을 높일 수 있다. 
+
+\subsection{인프라 관리를 위한 자동화 도구들\protect\footnote{조혜영, ``시스템 설정 및 관리를 위한 자동화 관리 도구에 관한 연구', 한국과학기술정보연구원 KISTI 국가슈퍼컴퓨팅연구소, 2015.}}
+
+PUPPET은 루비로 개발된 형상관리를 위한 도구이다. 
+프로그램 설정에 필요한 데이터들은 “Module”이라는 곳에 보관이 된다. 
+PUPPET은 ’서버-클라이언트’ 구조로 서버(master)에서 이 Module을 작성하고 배포하면, 클라이언트(agent)는 설치 후 서버에 보고를 하는 식의 형태를 띤다. 
+
+CHEF는 루비와 얼랭으로 개발된 형상관리를 위한 프레임워크이다. 
+실제로 프레지, 페이스북과 같은 유명한 기업들이 이 CHEF를 사용한다. 
+PUPPET에서는 Module이 설정에 필요한 데이터들을 보관한다면, CHEF에서는 ‘Cookbook’이 그 역할을 맡고 있다. 
+CHEF는 ‘서버-클라이언트’구조에 “workstation”이 추가된 구조이다. 
+서버는 Cookbook을 보관하는 역할만 하며, workstation에서 Cookbook을 개발하고 서버에 업로드하며 배포 지시를 내린다.  
+클라이언트(node라 불림)는 서버로부터 데이터를 가져와 패키지를 설치하고 애플리케이션을 실행한다. 
+
+Puppet 과 Chef 가 기능적인 측면에서는 큰 차이가 없지만,  Chef가 Puppet보다 좀 더 유연한 코딩이 가능해서 관리자에게는 Puppet, 개발자에게는 Chef가 더 나은 도구로 보인다. 
+그리고 커뮤니티 측면에서 볼 때 Puppet이 더 많은 인원들이 참여한다.
+
+HEAT은 ‘워크플로우’를 자동화해주는 오픈스택 프로젝트 개념이다. 
+그렇기에 Puppet과 Chef가 같이 쓰일 수 있다. 
+
+\end{document}
