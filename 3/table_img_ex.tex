@@ -1,0 +1,75 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage{graphicx}
+
+\title{table, image, quote}
+\author{지수 여}
+\date{December 2022}
+
+\begin{document}
+\maketitle
+\section{테이블}
+% Table template 1
+\begin{table}
+    \centering
+    \caption{Table template 1}
+    \label{t1}
+    \begin{tabular}{|c|c|c|c|}
+        \noalign{\smallskip}\noalign{\smallskip}
+        \hline % 가로줄
+             & column1 & column2 & column3 \\
+        \hline 
+        row1 &         &         &         \\
+        \hline 
+        row2 &         &         &         \\
+        \hline 
+        row3 &         &         &         \\
+        \hline
+    \end{tabular}
+\end{table}
+
+% Table template 2
+\begin{table}
+    \centering
+    \caption{Table template 2}
+    \label{t2}
+    \begin{tabular}{c|ccc}
+        \noalign{\smallskip}\noalign{\smallskip}
+        \hline\hline % 가로줄
+             & column1 & column2 & column3 \\
+        \hline 
+        row1 &    -    &    -    &    -    \\
+        \hline 
+        row2 &    -    &    -    &    -    \\
+        \hline 
+        row3 &    -    &    -    &    -    \\
+        \hline\hline
+    \end{tabular}
+\end{table}
+
+% Table template 3
+\begin{table}
+    \centering
+    \caption{Table template 3}
+    \label{t3}
+    \begin{tabular}{c|ccc}
+        \noalign{\smallskip}\noalign{\smallskip}
+        \hline\hline % 가로줄
+             & column1 & column2 & column3 \\
+        \hline
+        row1 &    -    &    -    &    -    \\
+        row2 &    -    &    -    &    -    \\
+        row3 &    -    &    -    &    -    \\
+        \hline\hline
+    \end{tabular}
+\end{table}
+
+\begin{figure}[!ht]
+\centering
+\includegraphics[width=0.4\textwidth]{image1.jpg}
+\caption{그림 예제}
+\label{fig:example1}
+\end{figure}
+\index{figure}
+
+\end{document}
